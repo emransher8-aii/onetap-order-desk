@@ -8,6 +8,7 @@ import androidx.compose.runtime.*
 import com.onetap.orderdesk.ui.activation.ActivationScreen
 import com.onetap.orderdesk.ui.dashboard.DashboardScreen
 import com.onetap.orderdesk.ui.orders.AllOrdersScreen
+import com.onetap.orderdesk.ui.orders.NewOrderScreen
 import com.onetap.orderdesk.ui.products.ProductsScreen
 import com.onetap.orderdesk.ui.theme.OrderDeskTheme
 
@@ -31,7 +32,7 @@ class MainActivity : ComponentActivity() {
                         onNavigateToOrders = { currentScreen = Screen.ALL_ORDERS },
                         onLockTerminal = { currentScreen = Screen.ACTIVATION }
                     )
-                    Screen.NEW_ORDER -> {}
+                    Screen.NEW_ORDER -> NewOrderScreen(onNavigateToDashboard = { currentScreen = Screen.DASHBOARD })
                     Screen.PRODUCTS -> ProductsScreen(onNavigateToDashboard = { currentScreen = Screen.DASHBOARD })
                     Screen.ALL_ORDERS -> AllOrdersScreen(onNavigateToDashboard = { currentScreen = Screen.DASHBOARD })
                 }
